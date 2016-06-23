@@ -1,92 +1,34 @@
- <script src="./elasticsearch.js"></script> 
-<body>
-  <style>
-  .carousel-inner > .item > img,
-  .carousel-inner > .item > a > img {
-      width: 70%;
-      margin: auto;
-  }
-  </style>
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script>
-
-
-function myFunction() {
-
-var client = new elasticsearch.Client({  
-    host: 'http://localhost:9200'
-});
-
-	console.log(client);
-	document.getElementById("img").style = "width:304px;height:228px;";
-	var output = document.getElementById('out');
-		var i=1;
-	while(i<=3)
-    {
-
-        if(!document.getElementById('timedrpact'+i))
-        {
-            var ele = document.createElement("img");
-			ele.setAttribute("src","cat.0.jpg");
-            ele.setAttribute("id","timedrpact"+i);
-            ele.setAttribute("class","inner");
-            output.appendChild(ele);
-
-        }
-        i++;
-
-
-    }
-    document.getElementById("img").src = document.getElementById("file").value;
-}
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8" />
+    <title>Albums</title>
+    <link rel="stylesheet" type="text/css" media="all" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="css/jgallery.min.css?v=1.5.0" />
+    <script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="js/jgallery.min.js?v=1.5.0"></script>
+    <script type="text/javascript" src="js/touchswipe.min.js"></script>
+    <script src="./elasticsearch.js"></script> 
+</head>
+<body style="width: 900px; margin: 100px auto; height: auto;">
+<script type="text/javascript">
+$( function() {
+    $( '#gallery' ).jGallery();
+} );
 </script>
 <input id = "file" type="text" placeholder="Entrez un mot-clef" name="the_search">
  <button onclick="myFunction()">Click me</button>
- <div id ="out" class="out">
- <img id = "img">
- 
- <div id="myCarousel" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1"></li>
-    <li data-target="#myCarousel" data-slide-to="2"></li>
-    <li data-target="#myCarousel" data-slide-to="3"></li>
-  </ol>
-
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner" role="listbox">
-    <div class="item active">
-      <img src="img_chania.jpg" alt="Chania">
+<div id="gallery">
+    <div class="album" data-jgallery-album-title="Album 1">
+        <a href="https://pixabay.com/static/uploads/photo/2015/10/01/21/39/background-image-967820_960_720.jpg"><img src="https://pixabay.com/static/uploads/photo/2015/10/01/21/39/background-image-967820_960_720.jpg" alt="Photo 1" /></a>
+        <a href="images/large/2.jpg"><img src="images/thumbs/2.jpg" alt="Photo 2" /></a>
+        <a href="images/large/3.jpg"><img src="images/thumbs/3.jpg" alt="Photo 3" /></a>
     </div>
-
-    <div class="item">
-      <img src="img_chania2.jpg" alt="Chania">
+    <div class="album" data-jgallery-album-title="Album 2">
+        <a href="images/large/4.jpg"><img src="images/thumbs/4.jpg" alt="Photo 4" /></a>
+        <a href="images/large/5.jpg"><img src="images/thumbs/5.jpg" alt="Photo 5" /></a>
+        <a href="images/large/6.jpg"><img src="images/thumbs/6.jpg" alt="Photo 6" /></a>
     </div>
-
-    <div class="item">
-      <img src="img_flower.jpg" alt="Flower">
-    </div>
-
-    <div class="item">
-      <img src="img_flower2.jpg" alt="Flower">
-    </div>
-  </div>
-
-  <!-- Left and right controls -->
-  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
 </div>
- 
- 
-</div>
- 
 </body>
+</html>
